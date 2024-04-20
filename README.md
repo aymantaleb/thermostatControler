@@ -3,7 +3,7 @@
 ## Created by Ayman Taleb 12/25/2023
 ![thermostat controller circuit schematic](screenshot.png)
 
-A way to control my Venstar ColorTouch thermostat using my ESP32 over a local network connection. The ColorTouch thermostat is a smart thermostat made by Venstar. It has an app and web interface through their [Skyport Cloud service](https://venstar.com/skyport/). However, I like the idea of having a small device in my room that can control my thermostat. Thankfully, this thermostat has a local API mode. Which means I can just send it HTTP requests to get info and control it. The API is really simple to use if you follow the [documentation](https://developer.venstar.com/). I created the schematic above using [Frizing](https://fritzing.org/).
+A way to control my Venstar ColorTouch thermostat using my ESP32 over a local network connection. The ColorTouch thermostat is a smart thermostat made by Venstar. It has an app and web interface through their [Skyport Cloud service](https://venstar.com/skyport/). However, I like the idea of having a small device in my room that can control my thermostat. Thankfully, this thermostat has a local API mode. Which means I can just send it HTTP requests to get info and control it. The API is really simple to use if you follow the [documentation](https://developer.venstar.com/). I created the schematic above using [Fritzing](https://fritzing.org/).
 
 
 ---
