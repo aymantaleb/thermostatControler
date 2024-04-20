@@ -8,7 +8,7 @@ A way to control my Venstar ColorTouch thermostat using my ESP32 over a local ne
 
 ---
 ### How the API works:
-The API uses the [SSDP protocol](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol) to send HTTP requests. In order to communication with the thermostat, you must enable local API in the settings on the [device](https://www.youtube.com/watch?v=kB_HcJ3kqCg). Then you just make HTTP requests using what ever API test software, I use [Postman](https://www.postman.com/). I am only using two endpoints, a GET request, to get updates on status/temperature, and a POST request, to send controls to the thermostat. 
+The API uses the [SSDP protocol](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol) to send HTTP requests to the thermostat over your local connection.You can enable HTTPS and use authentication, however, I chose not to. I probably should In order to communication with the thermostat, you must enable local API in the settings on the [device](https://www.youtube.com/watch?v=kB_HcJ3kqCg). Then you just make HTTP requests using what ever API test software, I use [Postman](https://www.postman.com/). I am only using two endpoints, a GET request, to get updates on status/temperature, and a POST request, to send controls to the thermostat. 
 
 #### GET Example:
 To get the current info from the thermostat you make this GET request:
