@@ -17,7 +17,7 @@ To get the current info from the thermostat you make this GET request:
 
 
 And you should get a response similar to this:
-```json
+```js
 {
     name: 'Office',
     mode: 0,
@@ -66,12 +66,12 @@ This request send a control request to the thermostat telling it to enable heat 
 
 If it was successful the response will be:
 
-```json
+```js
 {'success':true}
 ``` 
 If not it will be:
 
-```json
+```js
 {'error':true}
 ``` 
 ### Hardware breakdown
