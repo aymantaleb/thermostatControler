@@ -5,6 +5,9 @@
 
 A way to control my Venstar ColorTouch thermostat using my ESP32 over a local network connection. The ColorTouch thermostat is a smart thermostat made by Venstar. It has an app and web interface through their [Skyport Cloud service](https://venstar.com/skyport/). However, I like the idea of having a small device in my room that can control my thermostat. Thankfully, this thermostat has a local API mode. Which means I can just send it HTTP requests to get info and control it. The API is really simple to use if you follow the [documentation](https://developer.venstar.com/). I created the schematic above using [Fritzing](https://fritzing.org/).
 
+### Demo
+[See it in action.](https://youtu.be/LQyn5E1adyg) Currently, it is still on a breadboard, but I am in the process of putting it on a perfboard and 3D printing a case for it.
+
 
 ---
 ### How the API works:
@@ -50,7 +53,7 @@ And you should get a response similar to this:
 ```
 The values I used have these definitions:
 | VALUE | DEFINITION |
-| ----------- | ----------- |
+| :-----------: | :-----------: |
 | Mode | Current thermostat mode<br>0: Off<br>1: Heat<br>2: Cool<br>3: Auto |
 | State | Current thermostat state<br>0: Idle<br>1: Heating<br>2: Cooling<br>3: Lockout<br>4: Error |
 | heattemp | Current heat to temperature|
@@ -74,5 +77,42 @@ If not it will be:
 ```js
 {'error':true}
 ``` 
+---
 ### Hardware breakdown
 I am using an ESP32 dev board I purchased off of Amazon along with some buttons, LEDs, and an LCD screen that came in an electronics kit I bought. The first of the three buttons are using to change the mode of the thermostat, off, cool, or heat. The second is to increase the temperature and the third is to decrease it. The buttons are connected to pins 4, 15, and 19 respectively. The two LEDs are used to indicate cool or heat, blue or red, pins 12 and 32 respectively. And the LCD screen displays the info from the thermostat, it is connected using I2C. 
+
+
+| Function                  | Button/LED Color | Pin Number |
+|---------------------------|------------------|------------|
+| Change mode (off/cool/heat)| Button           | 4          |
+| Increase temperature      | Button           | 15         |
+| Decrease temperature      | Button           | 19         |
+| Cool indication           | Blue LED         | 12         |
+| Heat indication           | Red LED          | 32         |
+| LCD SDA                   |                  | 21         |
+| LCD SCL                   |                  | 22         |
+| 5V Power                  |                  | Vin        |
+| Ground                    |                  | GND        |
+
+#### ESP-WROOM-32 Pinout
+<img src="https://mischianti.org/wp-content/uploads/2021/03/ESP32-DOIT-DEV-KIT-v1-pinout-mischianti-1024x501.jpg"  > 
+
+(Credit: [Mischianti.org](https://mischianti.org/doit-esp32-dev-kit-v1-high-resolution-pinout-and-specs/) ) 
+
+
+
+---
+### Screen Definitions
+
+On the LCD screen, the info from the thermostat is displayed in shorthand due to size limitations.
+| VALUE | DEFINITION |
+| :-----------: | :-----------: |
+| M | The current mode the thermostat is set to (COOL, HEAT, OFF) |
+| S | The current state the thermostat is set to (IDLE, COOL, HEAT, ERROR) |
+| AT | Current ambient temperature|
+| ST | Current set temperature |
+
+
+
+### Future Upgrades
+
