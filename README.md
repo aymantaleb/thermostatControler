@@ -79,16 +79,20 @@ If not it will be:
 ``` 
 ---
 ### Hardware breakdown
-I am using an ESP32 dev board I purchased off of Amazon along with some buttons, LEDs, and an LCD screen that came in an electronics kit I bought. The first of the three buttons are using to change the mode of the thermostat, off, cool, or heat. The second is to increase the temperature and the third is to decrease it. The buttons are connected to pins 4, 15, and 19 respectively. The two LEDs are used to indicate cool or heat, blue or red, pins 12 and 32 respectively. And the LCD screen displays the info from the thermostat, it is connected using I2C. 
+I am using an ESP32 dev board I purchased off of Amazon along with some buttons, LEDs, and an LCD screen that came in an electronics kit I bought. The first of the three buttons are using to change the mode of the thermostat, off, cool, or heat. The second is to increase the temperature and the third is to decrease it. 
+
+To  power the device I am using a 18350 Li-ion battery with a [TP4056 charging module.](https://www.amazon.com/Makerfocus-Charging-Lithium-Battery-Protection/dp/B0CWNXKR4X?th=1) I only chose this battery because I scrapped it from another device. 
+
+Since the LCD needs 5V and the ESP can be powered with 5V, I need to step up the output from the battery, which is 3.7V. To do this I am using a [DC-DC Step Up Power Boost Converter.](https://www.amazon.com/dp/B07L76KLRY)
 
 
 | Function                  | Button/LED Color | Pin Number |
 |---------------------------|------------------|------------|
-| Change mode (off/cool/heat)| Button           | 4          |
+| Change mode (off/cool/heat)| Button           | 4         |
 | Increase temperature      | Button           | 15         |
 | Decrease temperature      | Button           | 19         |
-| Cool indication           | Blue LED         | 12         |
-| Heat indication           | Red LED          | 32         |
+| Cool indication           | Blue LED         | 32         |
+| Heat indication           | Red LED          | 12         |
 | LCD SDA                   |                  | 21         |
 | LCD SCL                   |                  | 22         |
 | 5V Power                  |                  | Vin        |
@@ -115,4 +119,6 @@ On the LCD screen, the info from the thermostat is displayed in shorthand due to
 
 
 ### Future Upgrades
-
+- 3D printed case
+- Temperature/humidity sensor for ambient 
+- OLED screen to replace LCD 
